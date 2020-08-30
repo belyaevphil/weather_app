@@ -1,0 +1,249 @@
+@import './normalize.css';
+@import './resetStyles.css';
+
+html {
+    font-size: 10px;
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.default-background {
+    background: url('../assets/images/default-bg.jpg');
+}
+
+.clear-background {
+    background: url('../assets/images/clear.jpg');
+}
+
+.clouds-background {
+    background: url('../assets/images/cloudy.jpg');
+}
+
+.rain-background {
+    background: url('../assets/images/rain.jpg');
+}
+
+.clear-background,
+.clouds-background,
+.rain-background {
+    transition: 0.5s;
+}
+
+.with-after::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.without-after::after {
+    display: none;
+}
+
+.root-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heading-1 {
+    font-size: 3.6rem;
+}
+
+.main {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.search-panel {
+    position: relative;
+}
+
+.search-box {
+    width: 350px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 56px 0 20px;
+    font-size: 2.4rem;
+    color: #d8d8d8;
+}
+
+.search-box::placeholder {
+    color: #d8d8d8;
+}
+
+.default-search-box {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.clear-search-box,
+.clouds-search-box {
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+.rain-search-box {
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+}
+
+.clear-search-box::placeholder,
+.clouds-search-box::placeholder,
+.rain-search-box::placeholder {
+    color: #ffffff;
+}
+
+.search-image {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+}
+
+.weather-card {
+    width: 350px;
+    border-radius: 10px;
+}
+
+.default-weather-card {
+    background: linear-gradient(
+        160deg,
+        rgba(32, 32, 32, 0.8) 0%,
+        rgba(17, 17, 17, 0.8) 30%,
+        rgba(17, 17, 17, 0.8) 58%,
+        rgba(32, 32, 32, 0.8) 100%
+    );
+}
+
+.clear-weather-card {
+    background: linear-gradient(
+        160deg,
+        #ffde15 0%,
+        #feaa2b 24%,
+        #feaa2b 61%,
+        #ffde15 100%
+    );
+}
+
+.rain-weather-card {
+    background: linear-gradient(
+        160deg,
+        #676767 0%,
+        #3b3b3b 32%,
+        #3b3b3b 69%,
+        #676767 100%
+    );
+}
+
+.clouds-weather-card {
+    background: linear-gradient(
+        160deg,
+        #a6e9ff 0%,
+        #39cdff 29%,
+        #39cdff 60%,
+        #a6e9ff 100%
+    );
+}
+
+/* .clear-weather-card,
+.rain-weather-card,
+.clouds-weather-card {
+    transition: 1s;
+} */
+
+.date-time {
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 30px 0 30px;
+}
+
+.time-bold {
+    font-size: 3.6rem;
+    font-weight: bold;
+}
+
+.weather-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.temperature {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.degrees {
+    font-size: 4.8rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.degrees::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    top: 5px;
+    right: -10px;
+    background: #272727;
+}
+
+.default-degrees-after::after {
+    background: #272727;
+}
+
+.clear-degrees-after::after {
+    background: #ffcd4e;
+}
+
+.rain-degrees-after::after {
+    background: #646464;
+}
+
+.clouds-degrees-after::after {
+    background: #85e0ff;
+}
+
+.description {
+    margin-left: 20px;
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.region {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 2.4rem;
+    padding-bottom: 30px;
+}
