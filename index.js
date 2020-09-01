@@ -11,11 +11,6 @@ const weatherImage = document.querySelector('.weather-image')
 const body = document.querySelector('body')
 const header = document.querySelector('.heading-1')
 
-const api = {
-    key: "91b90de4f7d1b799d283ab92f367fb1b",
-    base: "https://api.openweathermap.org/data/2.5/"
-}
-
 const getTime = now => {
     let hours = now.getHours()
     let minutes = now.getMinutes()
@@ -118,7 +113,7 @@ const displayResults = ({ name, sys: { country }, main: { temp }, weather }) => 
 }
 
 const fetchResults = async (query) => {
-    const { key, base } = api
+    const { key, base } = apiConfig
 
     const response = await fetch(`${base}weather?q=${query}&units=metric&appid=${key}`)
     const weather = await response.json()
