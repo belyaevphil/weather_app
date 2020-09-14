@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="this app shows weather in different countries and cities"
+    />
+    <meta name="keywords" content="weather app" />
+    <meta name="author" content="https://github.com/belyaevphil" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Weather app</title>
+  </head>
+  <body class="default-background with-after">
+    <header class="header">
+      <div class="container">
+        <h1 class="header__heading">Weather finder</h1>
+        <div class="search-panel">
+          <input
+            class="search-box default-search-box"
+            type="text"
+            autocomplete="off"
+            placeholder="Search for a city..."
+          />
+          <img class="search-image" src="search.svg" alt="search" />
+        </div>
+      </div>
+    </header>
+    <main class="weather-card default-weather-card">
+      <div class="container">
+        <div class="date-time">
+          <span class="time"></span>
+          <span class="day"></span>
+        </div>
+        <div class="weather-image">
+          <img src="clouds.svg" alt="clouds" />
+        </div>
+        <div class="temperature">
+          <span class="degrees default-degrees-after"></span>
+          <span class="description"></span>
+        </div>
+        <div class="region"></div>
+      </div>
+    </main>
+  </body>
+</html>
