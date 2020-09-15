@@ -1,4 +1,3 @@
-import { apiConfig } from './apiConfig';
 import { IGetTime, IBuildDateString } from './interfaces';
 
 import '@/assets/scss';
@@ -130,8 +129,9 @@ const displayResults = ({
 };
 
 const fetchResults = async (query: string): Promise<void> => {
-  const { key, base } = apiConfig;
-  const queryString = `${base}weather?q=${query}&units=metric&appid=${key}`;
+  const apiKey = process.env.API_KEY;
+  const apiBase = process.env.API_BASE;
+  const queryString = `${apiBase}weather?q=${query}&units=metric&appid=${apiKey}`;
 
   const response = await fetch(queryString);
   const weather = await response.json();

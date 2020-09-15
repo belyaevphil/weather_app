@@ -82,10 +82,9 @@ body {
   padding: 0 56px 0 20px;
   font-size: 2.4rem;
   color: #d8d8d8;
-}
-
-.search-box::placeholder {
-  color: #d8d8d8;
+  &::placeholder {
+    color: #d8d8d8;
+  }
 }
 
 .default-search-box {
@@ -159,12 +158,6 @@ body {
   );
 }
 
-/* .clear-weather-card,
-.rain-weather-card,
-.clouds-weather-card {
-  transition: 1s;
-} */
-
 .date-time {
   font-size: 1.8rem;
   display: flex;
@@ -197,17 +190,16 @@ body {
   font-size: 4.8rem;
   font-weight: bold;
   position: relative;
-}
-
-.degrees::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 2px;
-  height: 50px;
-  top: 5px;
-  right: -10px;
-  background: #272727;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    top: 5px;
+    right: -10px;
+    background: #272727;
+  }
 }
 
 .default-degrees-after::after {
