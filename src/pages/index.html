@@ -13,23 +13,32 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Weather app</title>
   </head>
-  <body class="default-background with-after">
-    <header class="header">
-      <div class="container">
-        <h1 class="header__heading">Weather finder</h1>
-        <div class="search-panel">
-          <input
-            class="search-box default-search-box"
-            type="text"
-            autocomplete="off"
-            placeholder="Search for a city..."
-          />
-          <img class="search-image" src="search.svg" alt="search" />
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__wrapper">
+          <h1 class="header__heading">Weather finder</h1>
+          <div class="search-panel header__search-panel">
+            <input
+              class="search-panel__input"
+              type="text"
+              autocomplete="off"
+              placeholder="Search for a city..."
+            />
+            <svg
+              class="search-panel__image"
+              fill="#ffffff"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.435 10.063h-0.7273l-0.2515-0.25158c0.8965-1.0383 1.4362-2.3876 1.4362-3.865 0-3.2842-2.6621-5.9463-5.9462-5.9463s-5.9463 2.6621-5.9463 5.9463 2.6621 5.9462 5.9463 5.9462c1.4774 0 2.8268-0.5397 3.865-1.4317l0.25158 0.2516v0.7227l4.574 4.5649 1.3631-1.3631-4.5649-4.574zm-5.4888 0c-2.2733 0-4.1166-1.8434-4.1166-4.1166s1.8434-4.1166 4.1166-4.1166 4.1166 1.8434 4.1166 4.1166-1.8434 4.1166-4.1166 4.1166z"
+              />
+            </svg>
+          </div>
         </div>
-      </div>
-    </header>
-    <main class="weather-card default-weather-card">
-      <div class="container">
+      </header>
+      <main class="weather-card">
         <div class="date-time">
           <span class="time"></span>
           <span class="day"></span>
@@ -38,11 +47,11 @@
           <img src="clouds.svg" alt="clouds" />
         </div>
         <div class="temperature">
-          <span class="degrees default-degrees-after"></span>
+          <span class="degrees"></span>
           <span class="description"></span>
         </div>
         <div class="region"></div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>

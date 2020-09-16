@@ -2,7 +2,9 @@ import { IGetTime, IBuildDateString } from './interfaces';
 
 import '@/assets/scss';
 
-const searchBox = document.querySelector('.search-box') as HTMLInputElement;
+const searchBox = document.querySelector(
+  '.search-panel__input'
+) as HTMLInputElement;
 const city = document.querySelector('.region') as HTMLDivElement;
 const time = document.querySelector('.time') as HTMLSpanElement;
 const day = document.querySelector('.day') as HTMLSpanElement;
@@ -11,7 +13,12 @@ const description = document.querySelector('.description') as HTMLSpanElement;
 const weatherCard = document.querySelector('.weather-card') as HTMLDivElement;
 const weatherImage = document.querySelector('.weather-image') as HTMLDivElement;
 const body = document.querySelector('body') as HTMLBodyElement;
-const header = document.querySelector('.header__heading') as HTMLHeadingElement;
+const heading = document.querySelector(
+  '.header__heading'
+) as HTMLHeadingElement;
+const searchPanelImage = document.querySelector(
+  '.search-panel__image'
+) as SVGAElement;
 
 const getTime = (now: Date): IGetTime => {
   let hours = now.getHours();
@@ -55,48 +62,6 @@ const buildDateString = (): IBuildDateString => {
 const buildTemperatureString = (temp: number): string =>
   `${Math.round(temp)}°c`;
 
-const clearBackgroundImage = () => {
-  body.classList.remove('default-background');
-  body.classList.remove('clear-background');
-  body.classList.remove('rain-background');
-  body.classList.remove('clouds-background');
-};
-
-const clearWeatherCard = () => {
-  weatherCard.classList.remove('default-weather-card');
-  weatherCard.classList.remove('clear-weather-card');
-  weatherCard.classList.remove('rain-weather-card');
-  weatherCard.classList.remove('clouds-weather-card');
-};
-
-const clearTemperature = () => {
-  temperature.classList.remove('default-degrees-after');
-  temperature.classList.remove('clear-degrees-after');
-  temperature.classList.remove('rain-degrees-after');
-  temperature.classList.remove('clouds-degrees-after');
-};
-
-const clearSearchBox = () => {
-  searchBox.classList.remove('default-search-box');
-  searchBox.classList.remove('clear-search-box');
-  searchBox.classList.remove('rain-search-box');
-  searchBox.classList.remove('clouds-search-box');
-};
-
-const changeBackground = (kind: string): void => {
-  clearBackgroundImage();
-  clearWeatherCard();
-  clearTemperature();
-  clearSearchBox();
-  body.classList.remove('with-after');
-  body.classList.add('without-after');
-  body.classList.add(`${kind}-background`);
-  weatherCard.classList.add(`${kind}-weather-card`);
-  temperature.classList.add(`${kind}-degrees-after`);
-  searchBox.classList.add(`${kind}-search-box`);
-  weatherImage.innerHTML = `<img src="${kind}.svg" alt="${kind}" />`;
-};
-
 const displayResults = ({
   name,
   sys: { country },
@@ -109,15 +74,57 @@ const displayResults = ({
 
   switch (main) {
     case 'Clear':
-      changeBackground('clear');
+      temperature.style.borderRight = '2px solid #ffcd4e';
+      searchPanelImage.style.fill = '#ffcd4e';
+      heading.style.color = '#ffeb87';
+      searchBox.style.background = 'rgba(0, 0, 0, 0.1)';
+      weatherImage.innerHTML = `<img src="clear.svg" alt="clear" />`;
+      body.style.background =
+        'linear-gradient(130.33deg, #FFDB00 17.14%, #FFA41A 34.19%, #FFA41A 65.93%, #FFDC00 83.21%)';
+      weatherCard.style.background =
+        'linear-gradient(160.37deg, #FFDE15 0%, #FEAA2B 24.48%, #FEAA2B 61.24%, #FFDE15 100%)';
       break;
     case 'Rain':
-      changeBackground('rain');
+      temperature.style.borderRight = '2px solid #646464';
+      searchPanelImage.style.fill = '#686868';
+      heading.style.color = '#686868';
+      searchBox.style.background = 'rgba(0, 0, 0, 0.1)';
+      weatherImage.innerHTML = `<img src="rain.svg" alt="rain" />`;
+      body.style.background =
+        'linear-gradient(129.54deg, #4E4E4E 16.96%, #3B3B3B 34.36%, #3B3B3B 65.7%, #4E4E4E 83.18%)';
+      weatherCard.style.background =
+        'linear-gradient(160.37deg, #313131 0%, #232323 26.75%, #232323 61.84%, #313131 100%)';
       break;
     case 'Clouds':
-      changeBackground('clouds');
+      temperature.style.borderRight = '2px solid #85e0ff';
+      searchPanelImage.style.fill = '#0073c5';
+      heading.style.color = '#0073c5';
+      searchBox.style.background = 'rgba(0, 0, 0, 0.1)';
+      weatherImage.innerHTML = `<img src="clouds.svg" alt="clouds" />`;
+      body.style.background =
+        'linear-gradient(129.61deg, #79DEFF 16.83%, #00BFFF 34%, #00BEFF 65.55%, #79DEFF 83.03%)';
+      weatherCard.style.background =
+        'linear-gradient(160.37deg, #A6E9FF 0%, #39CDFF 29.17%, #39CDFF 60.42%, #A6E9FF 100%)';
+      break;
+    case 'Mist':
+      temperature.style.borderRight = '2px solid #646464';
+      searchPanelImage.style.fill = '#686868';
+      heading.style.color = '#686868';
+      searchBox.style.background = 'rgba(0, 0, 0, 0.1)';
+      weatherImage.innerHTML = `<img src="mist.svg" alt="mist" />`;
+      body.style.background =
+        'linear-gradient(129.54deg, #4E4E4E 16.96%, #3B3B3B 34.36%, #3B3B3B 65.7%, #4E4E4E 83.18%)';
+      weatherCard.style.background =
+        'linear-gradient(160.37deg, #313131 0%, #232323 26.75%, #232323 61.84%, #313131 100%)';
       break;
     default:
+      temperature.style.borderRight = '2px solid rgb(90 90 90)';
+      searchPanelImage.style.fill = '#ffffff';
+      heading.style.color = '#2b2b2b';
+      weatherImage.innerHTML = `<img src="clouds.svg" alt="clouds" />`;
+      body.style.background = '#ffffff';
+      weatherCard.style.background =
+        'linear-gradient(160.37deg, rgba(32, 32, 32, 0.8) 0%, rgba(17, 17, 17, 0.8) 29.63%, rgba(17, 17, 17, 0.8) 57.95%, rgba(32, 32, 32, 0.8) 100%)';
       break;
   }
 
@@ -144,7 +151,6 @@ const makeQuery = (e: KeyboardEvent): void => {
     fetchResults(searchBox.value);
     searchBox.value = '';
     weatherCard.style.display = 'flex';
-    header.style.display = 'none';
   }
 };
 
